@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     pricingPageFlag()
   ]);
 
-  const paths = ["/", "/portfolio", "/about", "/contact"];
+  const paths = ["/", "/portfolio", "/services", "/about", "/contact"];
   if (showPricing) paths.push("/pricing");
 
   const staticPages = paths.map((path) => ({

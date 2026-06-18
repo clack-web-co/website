@@ -20,8 +20,9 @@ export default function ContactPage() {
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">Contact</p>
           <h1 className="mt-4 font-display text-5xl font-semibold">Take the easy first step.</h1>
           <p className="mt-5 text-lg leading-8 text-ink/70">
-            Tell me a little about your business and what you need. I will reply
-            with a clear recommendation, expected timeline, and package fit.
+            I am based in North East England and available in person or online.
+            Tell me a little about your business and what you need, and I will
+            reply with a clear recommendation and expected timeline.
           </p>
           <div className="mt-8 rounded-lg border border-line bg-white p-6">
             <h2 className="font-bold">What happens next?</h2>

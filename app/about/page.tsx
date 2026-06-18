@@ -48,6 +48,10 @@ export default function AboutPage() {
             <h1 className="mt-4 font-display text-5xl font-semibold">Every business deserves a great website.</h1>
             <div className="mt-6 grid gap-5 text-lg leading-8 text-ink/72">
               <p>
+                I am based in North East England and work with business owners
+                both in person and online.
+              </p>
+              <p>
                 I started this because local business owners often have the same
                 problem: they are excellent at serving customers, but their website
                 does not reflect the quality of the business.

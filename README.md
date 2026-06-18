@@ -53,6 +53,7 @@ Open `http://localhost:3000`.
 - `/` - Home
 - `/portfolio` - Portfolio listing
 - `/portfolio/[slug]` - Individual project
+- `/services` - Web design services
 - `/pricing` - Services and pricing
 - `/about` - About/story
 - `/contact` - Lead capture form

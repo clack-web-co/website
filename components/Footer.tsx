@@ -20,6 +20,7 @@ export default function Footer({ showPricing }: FooterProps) {
           <p className="font-bold">Pages</p>
           <div className="mt-4 grid gap-3 text-sm text-white/70">
             <Link href="/portfolio">Portfolio</Link>
+            <Link href="/services">Services</Link>
             {showPricing ? <Link href="/pricing">Pricing</Link> : null}
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
@@ -28,8 +29,8 @@ export default function Footer({ showPricing }: FooterProps) {
         <div>
           <p className="font-bold">Next step</p>
           <p className="mt-4 text-sm leading-6 text-white/70">
-            Tell me what your business needs and I will reply with a clear path,
-            timeline, and price range.
+            Based in North East England and available in person or online. Tell
+            me what your business needs and I will reply with a clear path.
           </p>
           <Link
             href="/contact"

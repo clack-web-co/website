@@ -23,15 +23,15 @@ export default async function Home() {
         <div className="container grid min-h-[calc(100vh-80px)] items-center gap-12 py-12 md:grid-cols-[1.05fr_0.95fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
-              Websites for local businesses
+              North East web design for small businesses
             </p>
             <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.05] text-ink md:text-7xl">
-              Get a professional website without the technical headache.
+              Professional websites without the technical headache.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-ink/72">
-              I help busy owners turn unclear, outdated, or missing websites
-              into polished online presences that make customers trust them and
-              get in touch.
+              Based in North East England, I work with business owners in person
+              and online to turn unclear, outdated, or missing websites into
+              polished online presences that win trust and enquiries.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact" className="rounded bg-clay px-6 py-4 text-center font-bold text-white hover:bg-ink">
@@ -46,7 +46,7 @@ export default async function Home() {
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-line pt-6 text-sm">
               <div><strong className="block text-2xl">2-6</strong> weeks to launch</div>
               <div><strong className="block text-2xl">100%</strong> mobile-friendly</div>
-              <div><strong className="block text-2xl">Clear</strong> fixed packages</div>
+              <div><strong className="block text-2xl">Clear</strong> project scope</div>
             </div>
           </div>
           <div className="relative">
