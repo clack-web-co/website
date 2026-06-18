@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fallbackPortfolio, getPortfolioItem } from "@/lib/contentful";
@@ -41,19 +42,40 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </a>
           </div>
         </div>
-        <div className="rounded-lg bg-white p-6 shadow-soft">
+        <div className="rounded-lg bg-white p-4 shadow-soft sm:p-6">
           <div className="aspect-[16/10] rounded bg-gradient-to-br from-moss/20 via-cream to-clay/20 p-5">
-            <div className="h-full rounded border border-ink/10 bg-white p-6">
-              <div className="h-5 w-28 rounded bg-clay/30" />
-              <div className="mt-6 h-10 w-2/3 rounded bg-ink" />
-              <div className="mt-4 h-4 w-full rounded bg-ink/15" />
-              <div className="mt-3 h-4 w-4/5 rounded bg-ink/15" />
-              <div className="mt-10 grid grid-cols-3 gap-4">
-                <div className="h-24 rounded bg-moss/25" />
-                <div className="h-24 rounded bg-clay/20" />
-                <div className="h-24 rounded bg-ink/10" />
+            {item.previewImage ? (
+              <div className="h-full overflow-hidden rounded border border-ink/10 bg-white shadow-soft">
+                <div className="flex h-8 items-center gap-1.5 border-b border-line bg-cream px-3">
+                  <span className="h-2.5 w-2.5 rounded-full bg-clay/70" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-moss/60" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-ink/25" />
+                  <span className="ml-2 truncate text-[11px] font-semibold text-ink/45">
+                    {item.liveUrl.replace(/^https?:\/\//, "")}
+                  </span>
+                </div>
+                <Image
+                  src={item.previewImage}
+                  alt={`${item.title} homepage preview`}
+                  width={1200}
+                  height={800}
+                  className="h-[calc(100%-2rem)] w-full object-cover object-top"
+                  priority
+                />
               </div>
-            </div>
+            ) : (
+              <div className="h-full rounded border border-ink/10 bg-white p-6">
+                <div className="h-5 w-28 rounded bg-clay/30" />
+                <div className="mt-6 h-10 w-2/3 rounded bg-ink" />
+                <div className="mt-4 h-4 w-full rounded bg-ink/15" />
+                <div className="mt-3 h-4 w-4/5 rounded bg-ink/15" />
+                <div className="mt-10 grid grid-cols-3 gap-4">
+                  <div className="h-24 rounded bg-moss/25" />
+                  <div className="h-24 rounded bg-clay/20" />
+                  <div className="h-24 rounded bg-ink/10" />
+                </div>
+              </div>
+            )}
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <div>
