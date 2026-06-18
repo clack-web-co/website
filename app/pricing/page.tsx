@@ -27,7 +27,7 @@ export default async function PricingPage() {
           <p className="mt-5 text-lg leading-8 text-ink/70">
             Choose the level that fits your business today. Every package is
             designed to create a polished, practical website that helps customers
-            understand what you do and get in touch.
+            understand what you do and get in touch. All prices are in GBP.
           </p>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">

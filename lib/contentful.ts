@@ -59,7 +59,7 @@ export const fallbackServices: ServicePlan[] = [
   {
     name: "Starter",
     description: "A sharp, credible website for businesses that need the essentials done properly.",
-    price: "$500-800",
+    price: "£500-£800",
     features: [
       "Professional homepage and key business information",
       "Mobile-friendly design",
@@ -71,7 +71,7 @@ export const fallbackServices: ServicePlan[] = [
   {
     name: "Professional",
     description: "A fuller site for businesses that want to show proof, services, and customer trust.",
-    price: "$1,000-1,500",
+    price: "£1,000-£1,500",
     features: [
       "Everything in Starter",
       "Portfolio or gallery section",
@@ -83,7 +83,7 @@ export const fallbackServices: ServicePlan[] = [
   {
     name: "Premium",
     description: "A custom website for businesses that need booking, ecommerce, or advanced workflows.",
-    price: "$2,000+",
+    price: "£2,000+",
     features: [
       "Everything in Professional",
       "Booking or ecommerce setup",
