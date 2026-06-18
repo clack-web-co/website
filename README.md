@@ -19,6 +19,7 @@ Create `.env.local` with:
 NEXT_PUBLIC_CONTENTFUL_SPACE_ID=<your_space_id>
 NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=<your_access_token>
 NEXT_PUBLIC_FORMSPREE_FORM_ID=<your_form_id>
+NEXT_PUBLIC_SITE_URL=<your_canonical_site_url>
 ```
 
 The site includes fallback content, so it can run before Contentful and Formspree are configured.

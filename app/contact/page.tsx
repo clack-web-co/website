@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ContactForm from "@/components/ContactForm";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact",
-  description: "Request a free consultation for your small business website."
-};
+  description:
+    "Request a free website consultation with Clack Web Co., based in North East England.",
+  path: "/contact"
+});
 
 export default function ContactPage() {
   return (
-    <section className="section bg-cream">
-      <div className="container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+    <>
+      <BreadcrumbJsonLd items={[{ name: "Contact", path: "/contact" }]} />
+      <section className="section bg-cream">
+        <div className="container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">Contact</p>
           <h1 className="mt-4 font-display text-5xl font-semibold">Take the easy first step.</h1>
@@ -27,7 +33,8 @@ export default function ContactPage() {
           </div>
         </div>
         <ContactForm />
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PortfolioCard from "@/components/PortfolioCard";
 import ServiceCard from "@/components/ServiceCard";
 import { pricingPageFlag } from "@/flags";
 import { fallbackPortfolio, fallbackServices } from "@/lib/contentful";
+import { createPageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Web Design for North East Businesses | Clack Web Co.",
+  description:
+    "Professional, mobile-friendly websites for small businesses across North East England. Work with Joe in person or online.",
+  path: "/",
+  absoluteTitle: true
+});
 
 export default async function Home() {
   const showPricing = await pricingPageFlag();

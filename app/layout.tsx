@@ -2,23 +2,29 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 import { pricingPageFlag } from "@/flags";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://side-proj.vercel.app"),
+  metadataBase: new URL(siteConfig.url),
   applicationName: "Clack Web Co.",
   title: {
-    default: "Clack Web Co. | Professional Websites for Local Businesses",
+    default: "Web Design for North East Businesses | Clack Web Co.",
     template: "%s | Clack Web Co."
   },
-  description:
-    "Professional, easy-to-manage websites for local businesses that need a polished online presence without the technical headache.",
+  description: siteConfig.description,
   openGraph: {
-    title: "Clack Web Co. | Professional Websites Made Simple",
-    description:
-      "A clear, trusted path to a better website for restaurants, salons, trades, shops, and local service businesses.",
+    title: "Web Design for North East Businesses | Clack Web Co.",
+    description: siteConfig.description,
+    url: "/",
     siteName: "Clack Web Co.",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Design for North East Businesses | Clack Web Co.",
+    description: siteConfig.description
   }
 };
 
@@ -28,10 +34,38 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const showPricing = await pricingPageFlag();
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      founder: {
+        "@type": "Person",
+        name: "Joe Clack"
+      },
+      areaServed: {
+        "@type": "AdministrativeArea",
+        name: siteConfig.areaServed
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      publisher: {
+        "@id": `${siteConfig.url}/#organization`
+      }
+    }
+  ];
 
   return (
     <html lang="en">
       <body>
+        <JsonLd data={structuredData} />
         <Header showPricing={showPricing} />
         <main>{children}</main>
         <Footer showPricing={showPricing} />
