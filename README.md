@@ -23,6 +23,21 @@ NEXT_PUBLIC_FORMSPREE_FORM_ID=<your_form_id>
 
 The site includes fallback content, so it can run before Contentful and Formspree are configured.
 
+## Feature Flags
+
+The pricing page and all pricing links use the boolean Vercel Flag
+`pricing-page`. It defaults to visible when Vercel Flags is not configured.
+
+Create `pricing-page` in the Vercel project, then pull the Vercel-managed
+`FLAGS` and `FLAGS_SECRET` variables for local Flags Explorer support:
+
+```bash
+vercel env pull
+```
+
+Flag definitions are exposed to Vercel Flags Explorer through
+`/.well-known/vercel/flags`.
+
 ## Development
 
 ```bash

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import ServiceCard from "@/components/ServiceCard";
+import { pricingPageFlag } from "@/flags";
 import { getServicePlans } from "@/lib/contentful";
 
 export const metadata: Metadata = {
@@ -16,6 +18,9 @@ const faqs = [
 ];
 
 export default async function PricingPage() {
+  const showPricing = await pricingPageFlag();
+  if (!showPricing) notFound();
+
   const plans = await getServicePlans();
 
   return (

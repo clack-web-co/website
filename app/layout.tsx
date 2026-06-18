@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { pricingPageFlag } from "@/flags";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://side-proj.vercel.app"),
@@ -21,17 +22,19 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const showPricing = await pricingPageFlag();
+
   return (
     <html lang="en">
       <body>
-        <Header />
+        <Header showPricing={showPricing} />
         <main>{children}</main>
-        <Footer />
+        <Footer showPricing={showPricing} />
       </body>
     </html>
   );

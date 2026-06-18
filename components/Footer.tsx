@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-export default function Footer() {
+type FooterProps = {
+  showPricing: boolean;
+};
+
+export default function Footer({ showPricing }: FooterProps) {
   return (
     <footer className="border-t border-line bg-ink text-white">
       <div className="container grid gap-10 py-12 md:grid-cols-[1.3fr_1fr_1fr]">
@@ -16,7 +20,7 @@ export default function Footer() {
           <p className="font-bold">Pages</p>
           <div className="mt-4 grid gap-3 text-sm text-white/70">
             <Link href="/portfolio">Portfolio</Link>
-            <Link href="/pricing">Pricing</Link>
+            {showPricing ? <Link href="/pricing">Pricing</Link> : null}
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </div>
