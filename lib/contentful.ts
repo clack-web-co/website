@@ -9,6 +9,10 @@ export type PortfolioItem = {
   results: string;
   liveUrl: string;
   previewImage?: string;
+  testimonial: {
+    quote: string;
+    author: string;
+  };
 };
 
 export type ServicePlan = {
@@ -42,7 +46,12 @@ export const fallbackPortfolio: PortfolioItem[] = [
       "A clearer first impression for prospective clients and a direct path to enquire about coaching.",
     liveUrl: "https://judecfitness.com",
     previewImage:
-      "https://image.thum.io/get/width/1200/crop/800/https://judecfitness.com"
+      "https://image.thum.io/get/width/1200/crop/800/https://judecfitness.com",
+    testimonial: {
+      quote:
+        "Client testimonial awaiting approval. This space is ready for signed-off feedback from Jude C Fitness.",
+      author: "Jude C Fitness"
+    }
   }
 ];
 
@@ -102,7 +111,14 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
     results: String(entry.fields.results ?? "A simpler path from first visit to enquiry."),
     liveUrl: String(entry.fields.liveUrl ?? "#"),
     previewImage:
-      typeof entry.fields.previewImage === "string" ? entry.fields.previewImage : undefined
+      typeof entry.fields.previewImage === "string" ? entry.fields.previewImage : undefined,
+    testimonial: {
+      quote: String(
+        entry.fields.testimonialQuote ??
+          "Client testimonial awaiting approval. This space is ready for signed-off project feedback."
+      ),
+      author: String(entry.fields.testimonialAuthor ?? entry.fields.title ?? "Client")
+    }
   }));
 }
 

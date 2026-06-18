@@ -87,6 +87,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <p className="mt-2 text-sm leading-6 text-ink/70">{item.results}</p>
             </div>
           </div>
+          <figure className="mt-8 rounded bg-cream p-5">
+            <blockquote className="text-base leading-7 text-ink/75">
+              &ldquo;{item.testimonial.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-3 text-sm font-bold text-ink">
+              {item.testimonial.author}
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

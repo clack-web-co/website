@@ -51,6 +51,14 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
         <p className="mt-4 rounded bg-cream px-3 py-2 text-sm font-semibold text-ink">
           {item.results}
         </p>
+        <figure className="mt-4 border-l-2 border-clay/60 pl-4">
+          <blockquote className="text-sm leading-6 text-ink/70">
+            &ldquo;{item.testimonial.quote}&rdquo;
+          </blockquote>
+          <figcaption className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-ink/45">
+            {item.testimonial.author}
+          </figcaption>
+        </figure>
         <Link
           href={`/portfolio/${item.slug}`}
           className="mt-5 inline-flex text-sm font-bold text-clay hover:text-ink"
