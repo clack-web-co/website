@@ -8,6 +8,11 @@ export type PortfolioItem = {
   problem: string;
   results: string;
   liveUrl: string;
+  previewImage?: string;
+  testimonial: {
+    quote: string;
+    author: string;
+  };
 };
 
 export type ServicePlan = {
@@ -30,58 +35,23 @@ export const contentfulClient =
 
 export const fallbackPortfolio: PortfolioItem[] = [
   {
-    title: "Harbour Table",
-    slug: "harbour-table",
-    industry: "Restaurant",
-    summary: "A cleaner website for menus, opening hours, bookings, and local search.",
-    problem: "The restaurant relied on social posts and outdated menu PDFs.",
-    results: "More booking enquiries and fewer phone calls asking basic questions.",
-    liveUrl: "#"
-  },
-  {
-    title: "Elm & Ivy Studio",
-    slug: "elm-ivy-studio",
-    industry: "Salon",
-    summary: "A calm, premium site that highlights services, reviews, and appointment booking.",
-    problem: "The salon looked established in person but inconsistent online.",
-    results: "A stronger first impression and clearer path to book appointments.",
-    liveUrl: "#"
-  },
-  {
-    title: "Northline Plumbing",
-    slug: "northline-plumbing",
-    industry: "Trades",
-    summary: "A trust-focused service site built around emergency calls and quote requests.",
-    problem: "Customers could not quickly see service areas, credentials, or phone details.",
-    results: "Higher-quality enquiries from customers in the right service area.",
-    liveUrl: "#"
-  },
-  {
-    title: "Kindred Physio",
-    slug: "kindred-physio",
-    industry: "Health",
-    summary: "A simple patient-friendly website explaining treatments and next steps.",
-    problem: "The old site used clinical language and buried appointment information.",
-    results: "Clearer patient journey from symptom research to booking.",
-    liveUrl: "#"
-  },
-  {
-    title: "Marlow Home Goods",
-    slug: "marlow-home-goods",
-    industry: "Retail",
-    summary: "A polished local shop presence with seasonal collections and visit details.",
-    problem: "The business needed a professional web presence without full ecommerce complexity.",
-    results: "Better visibility for new customers discovering the shop online.",
-    liveUrl: "#"
-  },
-  {
-    title: "Oak Yard Landscaping",
-    slug: "oak-yard-landscaping",
-    industry: "Home Services",
-    summary: "A project-led website showing transformations, services, and quote requests.",
-    problem: "Great project photos were scattered across messages and social media.",
-    results: "More confident enquiries backed by visible examples of finished work.",
-    liveUrl: "#"
+    title: "Jude C Fitness",
+    slug: "jude-c-fitness",
+    industry: "Fitness coaching",
+    summary:
+      "A focused website for a fitness coach, giving potential clients a clear place to understand the offer and make contact.",
+    problem:
+      "The business needed a dedicated online presence that felt more professional than relying on scattered social links alone.",
+    results:
+      "A clearer first impression for prospective clients and a direct path to enquire about coaching.",
+    liveUrl: "https://judecfitness.com",
+    previewImage:
+      "https://image.thum.io/get/width/1200/crop/800/https://judecfitness.com",
+    testimonial: {
+      quote:
+        "Joe created a website that clearly showcases my new business and gives me a professional way to reach new clients.",
+      author: "Jude C Fitness"
+    }
   }
 ];
 
@@ -139,7 +109,16 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
     summary: "A professional website designed to make the business easier to trust and contact.",
     problem: "The business needed a clearer, more credible online presence.",
     results: String(entry.fields.results ?? "A simpler path from first visit to enquiry."),
-    liveUrl: String(entry.fields.liveUrl ?? "#")
+    liveUrl: String(entry.fields.liveUrl ?? "#"),
+    previewImage:
+      typeof entry.fields.previewImage === "string" ? entry.fields.previewImage : undefined,
+    testimonial: {
+      quote: String(
+        entry.fields.testimonialQuote ??
+          "Client testimonial awaiting approval. This space is ready for signed-off project feedback."
+      ),
+      author: String(entry.fields.testimonialAuthor ?? entry.fields.title ?? "Client")
+    }
   }));
 }
 
