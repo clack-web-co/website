@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -11,15 +12,15 @@ export default function AboutPage() {
     <section className="section bg-cream">
       <div className="container grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
-          <div className="aspect-[4/5] rounded-lg bg-gradient-to-br from-moss/25 via-white to-clay/20 p-5 shadow-soft">
-            <div className="grid h-full place-items-center rounded border border-ink/10 bg-white text-center">
-              <div>
-                <div className="mx-auto h-28 w-28 rounded-full bg-ink/10" />
-                <p className="mt-5 text-sm font-bold uppercase tracking-[0.18em] text-ink/50">
-                  Add professional photo
-                </p>
-              </div>
-            </div>
+          <div className="aspect-[4/5] overflow-hidden rounded-lg bg-white shadow-soft">
+            <Image
+              src="/images/joe-headshot.jpg"
+              alt="Joe Clack"
+              width={1200}
+              height={1600}
+              className="h-full w-full object-cover object-top"
+              priority
+            />
           </div>
         </div>
         <div>
