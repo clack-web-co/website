@@ -103,6 +103,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <p className="mt-2 text-sm leading-6 text-ink/70">{item.results}</p>
             </div>
           </div>
+          <div className="mt-8 border-t border-line pt-6">
+            <h2 className="font-bold">Work completed</h2>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {item.services.map((service) => (
+                <li
+                  key={service}
+                  className="border-l-2 border-moss/50 pl-3 text-sm leading-6 text-ink/70"
+                >
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
           <figure className="mt-8 rounded bg-cream p-5">
             <blockquote className="text-base leading-7 text-ink/75">
               &ldquo;{item.testimonial.quote}&rdquo;

@@ -67,3 +67,6 @@ npm run build
 ```
 
 Auto-deployment can be configured on push to the `main` branch.
+
+Use [the SEO launch checklist](docs/seo-launch.md) when the final domain is
+ready to connect.
