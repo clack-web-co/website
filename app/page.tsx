@@ -3,19 +3,6 @@ import PortfolioCard from "@/components/PortfolioCard";
 import ServiceCard from "@/components/ServiceCard";
 import { fallbackPortfolio, fallbackServices } from "@/lib/contentful";
 
-const testimonials = [
-  {
-    quote:
-      "The process was simple, the website finally looks like our business, and customers know exactly how to book.",
-    name: "Independent salon owner"
-  },
-  {
-    quote:
-      "We stopped sending people to a messy Facebook page. Now our services, reviews, and phone number are clear.",
-    name: "Local trade business"
-  }
-];
-
 export default function Home() {
   return (
     <>
@@ -80,10 +67,10 @@ export default function Home() {
         <div className="container">
           <div className="max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">Selected work</p>
-            <h2 className="mt-3 font-display text-4xl font-semibold">Realistic examples of the businesses this is built for.</h2>
+            <h2 className="mt-3 font-display text-4xl font-semibold">A real project showing the kind of practical website this service creates.</h2>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {fallbackPortfolio.slice(0, 3).map((item) => (
+          <div className="mt-10 grid max-w-md gap-6">
+            {fallbackPortfolio.map((item) => (
               <PortfolioCard key={item.slug} item={item} />
             ))}
           </div>
@@ -101,13 +88,21 @@ export default function Home() {
       </section>
 
       <section className="section bg-white">
-        <div className="container grid gap-6 md:grid-cols-2">
-            {testimonials.map((testimonial) => (
-            <blockquote key={testimonial.name} className="rounded-lg border border-line p-6">
-              <p className="font-display text-2xl leading-9">&ldquo;{testimonial.quote}&rdquo;</p>
-              <footer className="mt-5 text-sm font-bold text-moss">{testimonial.name}</footer>
-            </blockquote>
-          ))}
+        <div className="container grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">What this shows</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold">Built around the decision a customer needs to make.</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {["Clear offer", "Mobile-first layout", "Easy enquiry path"].map((item) => (
+              <div key={item} className="rounded-lg border border-line p-5">
+                <p className="font-bold">{item}</p>
+                <p className="mt-3 text-sm leading-6 text-ink/70">
+                  The page makes it easier for visitors to understand the business and take the next step.
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
