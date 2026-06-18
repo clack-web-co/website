@@ -1,9 +1,12 @@
 import Link from "next/link";
 import PortfolioCard from "@/components/PortfolioCard";
 import ServiceCard from "@/components/ServiceCard";
+import { pricingPageFlag } from "@/flags";
 import { fallbackPortfolio, fallbackServices } from "@/lib/contentful";
 
-export default function Home() {
+export default async function Home() {
+  const showPricing = await pricingPageFlag();
+
   return (
     <>
       <section className="bg-cream">
@@ -24,9 +27,11 @@ export default function Home() {
               <Link href="/contact" className="rounded bg-clay px-6 py-4 text-center font-bold text-white hover:bg-ink">
                 Get Your Website Today
               </Link>
-              <Link href="/pricing" className="rounded border border-ink/20 px-6 py-4 text-center font-bold text-ink hover:border-ink">
-                See Pricing
-              </Link>
+              {showPricing ? (
+                <Link href="/pricing" className="rounded border border-ink/20 px-6 py-4 text-center font-bold text-ink hover:border-ink">
+                  See Pricing
+                </Link>
+              ) : null}
             </div>
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-line pt-6 text-sm">
               <div><strong className="block text-2xl">2-6</strong> weeks to launch</div>
@@ -77,15 +82,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-cream">
-        <div className="container">
-          <div className="grid gap-6 md:grid-cols-3">
-            {fallbackServices.map((plan, index) => (
-              <ServiceCard key={plan.name} plan={plan} featured={index === 1} />
-            ))}
+      {showPricing ? (
+        <section className="section bg-cream">
+          <div className="container">
+            <div className="grid gap-6 md:grid-cols-3">
+              {fallbackServices.map((plan, index) => (
+                <ServiceCard key={plan.name} plan={plan} featured={index === 1} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="section bg-white">
         <div className="container grid gap-8 md:grid-cols-[0.8fr_1.2fr]">

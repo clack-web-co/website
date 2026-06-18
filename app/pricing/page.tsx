@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import ServiceCard from "@/components/ServiceCard";
+import { pricingPageFlag } from "@/flags";
 import { getServicePlans } from "@/lib/contentful";
 
 export const metadata: Metadata = {
@@ -16,6 +18,9 @@ const faqs = [
 ];
 
 export default async function PricingPage() {
+  const showPricing = await pricingPageFlag();
+  if (!showPricing) notFound();
+
   const plans = await getServicePlans();
 
   return (
@@ -27,7 +32,7 @@ export default async function PricingPage() {
           <p className="mt-5 text-lg leading-8 text-ink/70">
             Choose the level that fits your business today. Every package is
             designed to create a polished, practical website that helps customers
-            understand what you do and get in touch.
+            understand what you do and get in touch. All prices are in GBP.
           </p>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
