@@ -53,18 +53,18 @@ export default function Header() {
           >
             <span className="relative block h-5 w-5" aria-hidden="true">
               <span
-                className={`absolute left-0 top-1 h-0.5 w-5 rounded bg-current transition ${
-                  isOpen ? "translate-y-2 rotate-45" : ""
+                className={`absolute left-0 top-1/2 h-0.5 w-5 rounded bg-current transition ${
+                  isOpen ? "-translate-y-1/2 rotate-45" : "-translate-y-2"
                 }`}
               />
               <span
-                className={`absolute left-0 top-2.5 h-0.5 w-5 rounded bg-current transition ${
-                  isOpen ? "opacity-0" : ""
+                className={`absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rounded bg-current transition ${
+                  isOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 top-4 h-0.5 w-5 rounded bg-current transition ${
-                  isOpen ? "-translate-y-1.5 -rotate-45" : ""
+                className={`absolute left-0 top-1/2 h-0.5 w-5 rounded bg-current transition ${
+                  isOpen ? "-translate-y-1/2 -rotate-45" : "translate-y-1.5"
                 }`}
               />
             </span>
