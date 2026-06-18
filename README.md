@@ -1,4 +1,4 @@
-# Small Business Website Builder
+# Clack Web Co.
 
 Professional website for selling small business website services to local business owners.
 

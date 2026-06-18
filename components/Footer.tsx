@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container grid gap-10 py-12 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/60">
-            Joe Clack
+            Clack Web Co.
           </p>
           <h2 className="mt-3 max-w-sm font-display text-3xl">
             Professional websites made simple for local businesses.

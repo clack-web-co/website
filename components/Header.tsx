@@ -20,12 +20,17 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-cream/92 backdrop-blur">
       <div className="container flex min-h-20 items-center justify-between gap-5">
-        <Link href="/" className="flex items-center gap-3" aria-label="Go home" onClick={closeMenu}>
+        <Link
+          href="/"
+          className="flex items-center gap-3"
+          aria-label="Clack Web Co. home"
+          onClick={closeMenu}
+        >
           <span className="grid h-10 w-10 place-items-center rounded bg-ink text-sm font-bold text-white">
-            JC
+            C
           </span>
           <span className="text-sm font-bold uppercase tracking-[0.18em] text-ink">
-            Joe Clack
+            Clack Web Co.
           </span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-semibold text-ink/75 md:flex">

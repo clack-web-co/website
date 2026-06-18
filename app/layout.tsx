@@ -5,16 +5,18 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://side-proj.vercel.app"),
+  applicationName: "Clack Web Co.",
   title: {
-    default: "Professional Websites for Small Local Businesses",
-    template: "%s | Small Business Website Builder"
+    default: "Clack Web Co. | Professional Websites for Local Businesses",
+    template: "%s | Clack Web Co."
   },
   description:
     "Professional, easy-to-manage websites for local businesses that need a polished online presence without the technical headache.",
   openGraph: {
-    title: "Professional Websites Made Simple",
+    title: "Clack Web Co. | Professional Websites Made Simple",
     description:
       "A clear, trusted path to a better website for restaurants, salons, trades, shops, and local service businesses.",
+    siteName: "Clack Web Co.",
     type: "website"
   }
 };

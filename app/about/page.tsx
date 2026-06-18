@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet the person behind the small business website builder."
+  description: "Meet Joe Clack, the person behind Clack Web Co."
 };
 
 export default function AboutPage() {
