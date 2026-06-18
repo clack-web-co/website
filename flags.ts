@@ -4,7 +4,7 @@ import { flag } from "flags/next";
 export const pricingPageFlag = flag<boolean>({
   key: "pricing-page",
   adapter: vercelAdapter(),
-  defaultValue: true,
+  defaultValue: false,
   description: "Show pricing packages, links, and the pricing page.",
   options: [
     { value: false, label: "Hidden" },
