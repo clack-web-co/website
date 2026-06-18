@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 
+const configuredSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://side-proj.vercel.app";
+
 export const siteConfig = {
   name: "Clack Web Co.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://side-proj.vercel.app",
+  url: configuredSiteUrl.replace(/\/+$/, ""),
   description:
     "Professional, mobile-friendly websites for small businesses across North East England.",
   areaServed: "North East England"
 };
+
+export const allowSearchIndexing =
+  process.env.VERCEL_ENV === undefined ||
+  process.env.VERCEL_ENV === "production";
 
 type PageMetadataOptions = {
   title: string;

@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { pricingPageFlag } from "@/flags";
-import { siteConfig } from "@/lib/site";
+import { allowSearchIndexing, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -25,7 +25,17 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Web Design for North East Businesses | Clack Web Co.",
     description: siteConfig.description
-  }
+  },
+  robots: allowSearchIndexing
+    ? {
+        index: true,
+        follow: true
+      }
+    : {
+        index: false,
+        follow: false,
+        noarchive: true
+      }
 };
 
 export default async function RootLayout({
