@@ -49,7 +49,7 @@ export const fallbackPortfolio: PortfolioItem[] = [
       "https://image.thum.io/get/width/1200/crop/800/https://judecfitness.com",
     testimonial: {
       quote:
-        "Client testimonial awaiting approval. This space is ready for signed-off feedback from Jude C Fitness.",
+        "Joe created a website that clearly showcases my new business and gives me a professional way to reach new clients.",
       author: "Jude C Fitness"
     }
   }
