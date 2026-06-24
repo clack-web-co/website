@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ServiceCard from "@/components/ServiceCard";
 import { pricingPageFlag } from "@/flags";
 import { getServicePlans } from "@/lib/contentful";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Pricing",
-  description: "Clear website packages for small local businesses with transparent pricing and no hidden fees."
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Website Packages and Pricing",
+  description:
+    "Clear GBP website packages for small businesses, with transparent pricing and no hidden fees.",
+  path: "/pricing"
+});
 
 const faqs = [
   ["Do I need to know how to update my website?", "No. I can handle updates for you, or show you how to make simple content changes."],
@@ -24,8 +28,10 @@ export default async function PricingPage() {
   const plans = await getServicePlans();
 
   return (
-    <section className="section bg-cream">
-      <div className="container">
+    <>
+      <BreadcrumbJsonLd items={[{ name: "Pricing", path: "/pricing" }]} />
+      <section className="section bg-cream">
+        <div className="container">
         <div className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">Services and pricing</p>
           <h1 className="mt-4 font-display text-5xl font-semibold">Clear packages. No hidden fees.</h1>
@@ -60,7 +66,8 @@ export default async function PricingPage() {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

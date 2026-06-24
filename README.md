@@ -19,6 +19,7 @@ Create `.env.local` with:
 NEXT_PUBLIC_CONTENTFUL_SPACE_ID=<your_space_id>
 NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=<your_access_token>
 NEXT_PUBLIC_FORMSPREE_FORM_ID=<your_form_id>
+NEXT_PUBLIC_SITE_URL=<your_canonical_site_url>
 ```
 
 The site includes fallback content, so it can run before Contentful and Formspree are configured.
@@ -52,6 +53,7 @@ Open `http://localhost:3000`.
 - `/` - Home
 - `/portfolio` - Portfolio listing
 - `/portfolio/[slug]` - Individual project
+- `/services` - Web design services
 - `/pricing` - Services and pricing
 - `/about` - About/story
 - `/contact` - Lead capture form
@@ -65,3 +67,6 @@ npm run build
 ```
 
 Auto-deployment can be configured on push to the `main` branch.
+
+Use [the SEO launch checklist](docs/seo-launch.md) when the final domain is
+ready to connect.

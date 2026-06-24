@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { fallbackPortfolio, getPortfolioItem } from "@/lib/contentful";
+import { createPageMetadata } from "@/lib/site";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -15,10 +17,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const item = await getPortfolioItem(slug);
-  return {
-    title: item ? item.title : "Project",
-    description: item?.summary
-  };
+  if (!item) {
+    return {
+      title: "Project"
+    };
+  }
+
+  return createPageMetadata({
+    title: `${item.title} Website Project`,
+    description: item.summary,
+    path: `/portfolio/${item.slug}`
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -27,8 +36,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!item) notFound();
 
   return (
-    <section className="section bg-cream">
-      <div className="container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Portfolio", path: "/portfolio" },
+          { name: item.title, path: `/portfolio/${item.slug}` }
+        ]}
+      />
+      <section className="section bg-cream">
+        <div className="container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">{item.industry}</p>
           <h1 className="mt-4 font-display text-5xl font-semibold">{item.title}</h1>
@@ -87,6 +103,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <p className="mt-2 text-sm leading-6 text-ink/70">{item.results}</p>
             </div>
           </div>
+          <div className="mt-8 border-t border-line pt-6">
+            <h2 className="font-bold">Work completed</h2>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {item.services.map((service) => (
+                <li
+                  key={service}
+                  className="border-l-2 border-moss/50 pl-3 text-sm leading-6 text-ink/70"
+                >
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
           <figure className="mt-8 rounded bg-cream p-5">
             <blockquote className="text-base leading-7 text-ink/75">
               &ldquo;{item.testimonial.quote}&rdquo;
@@ -96,7 +125,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </figcaption>
           </figure>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

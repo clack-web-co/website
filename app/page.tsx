@@ -1,8 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PortfolioCard from "@/components/PortfolioCard";
 import ServiceCard from "@/components/ServiceCard";
 import { pricingPageFlag } from "@/flags";
 import { fallbackPortfolio, fallbackServices } from "@/lib/contentful";
+import { createPageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Web Design for North East Businesses | Clack Web Co.",
+  description:
+    "Professional, mobile-friendly websites for small businesses across North East England. Work with Joe in person or online.",
+  path: "/",
+  absoluteTitle: true
+});
+
+const ownershipFeatures = [
+  "Secure website setup",
+  "Domain connection",
+  "Managed hosting",
+  "Maintenance options",
+  "Search engine basics",
+  "Clear launch support"
+];
 
 export default async function Home() {
   const showPricing = await pricingPageFlag();
@@ -13,15 +32,15 @@ export default async function Home() {
         <div className="container grid min-h-[calc(100vh-80px)] items-center gap-12 py-12 md:grid-cols-[1.05fr_0.95fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
-              Websites for local businesses
+              North East web design for small businesses
             </p>
             <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.05] text-ink md:text-7xl">
-              Get a professional website without the technical headache.
+              Professional websites without the technical headache.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-ink/72">
-              I help busy owners turn unclear, outdated, or missing websites
-              into polished online presences that make customers trust them and
-              get in touch.
+              Based in North East England, I work with business owners in person
+              and online to turn unclear, outdated, or missing websites into
+              polished online presences that win trust and enquiries.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact" className="rounded bg-clay px-6 py-4 text-center font-bold text-white hover:bg-ink">
@@ -36,7 +55,7 @@ export default async function Home() {
             <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-line pt-6 text-sm">
               <div><strong className="block text-2xl">2-6</strong> weeks to launch</div>
               <div><strong className="block text-2xl">100%</strong> mobile-friendly</div>
-              <div><strong className="block text-2xl">Clear</strong> fixed packages</div>
+              <div><strong className="block text-2xl">Clear</strong> project scope</div>
             </div>
           </div>
           <div className="relative">
@@ -107,6 +126,40 @@ export default async function Home() {
                 <p className="mt-3 text-sm leading-6 text-ink/70">
                   The page makes it easier for visitors to understand the business and take the next step.
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-cream">
+        <div className="container grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+              What you get
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-semibold">
+              The website, launch and ongoing setup handled properly.
+            </h2>
+            <p className="mt-4 leading-7 text-ink/70">
+              A professional website is not just the design. I help with the
+              practical pieces around it too, so you are not left trying to
+              untangle domains, hosting, updates or technical setup yourself.
+            </p>
+            <Link
+              href="/services"
+              className="mt-6 inline-flex rounded bg-ink px-5 py-4 font-bold text-white hover:bg-clay"
+            >
+              View Services
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {ownershipFeatures.map((feature) => (
+              <div
+                key={feature}
+                className="rounded-lg border border-line bg-white p-5 font-bold"
+              >
+                {feature}
               </div>
             ))}
           </div>
