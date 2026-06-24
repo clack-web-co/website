@@ -33,6 +33,39 @@ const services = [
   }
 ];
 
+const included = [
+  {
+    name: "Secure website setup",
+    description:
+      "Your site is launched with HTTPS, sensible form handling and privacy-aware setup so customers can browse and enquire with confidence."
+  },
+  {
+    name: "Domain management",
+    description:
+      "I can help choose, connect and manage your domain name, including the DNS settings that usually trip people up."
+  },
+  {
+    name: "Managed hosting",
+    description:
+      "Fast, reliable hosting is arranged for you, with deployment handled so you do not need to touch servers or control panels."
+  },
+  {
+    name: "Maintenance and updates",
+    description:
+      "After launch, you can ask for content changes, new sections, fixes or improvements without having to manage the website yourself."
+  },
+  {
+    name: "Backups and recovery route",
+    description:
+      "The project is kept in version control, giving your website a clear recovery path if something ever needs to be rolled back."
+  },
+  {
+    name: "Search and analytics basics",
+    description:
+      "Core SEO foundations, page titles, descriptions and analytics guidance are included so the site is ready to be found and measured."
+  }
+];
+
 const process = [
   {
     name: "Understand the business",
@@ -80,12 +113,48 @@ export default function ServicesPage() {
 
       <section className="section bg-white">
         <div className="container">
-          <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+              Website services
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-semibold">
+              Built around what your business needs to sell, book or explain.
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
             {services.map((service) => (
               <article key={service.name} className="bg-white p-7 sm:p-8">
                 <h2 className="text-xl font-bold">{service.name}</h2>
                 <p className="mt-3 leading-7 text-ink/70">
                   {service.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-white pt-0">
+        <div className="container grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+              Handled for you
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-semibold">
+              More than a nice-looking page.
+            </h2>
+            <p className="mt-4 leading-7 text-ink/70">
+              The practical setup around the website matters too. I help with
+              the pieces that make the site secure, live, maintainable and easy
+              to keep moving after launch.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {included.map((item) => (
+              <article key={item.name} className="rounded-lg border border-line p-5">
+                <h3 className="font-bold">{item.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-ink/70">
+                  {item.description}
                 </p>
               </article>
             ))}

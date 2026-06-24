@@ -14,6 +14,15 @@ export const metadata: Metadata = createPageMetadata({
   absoluteTitle: true
 });
 
+const ownershipFeatures = [
+  "Secure website setup",
+  "Domain connection",
+  "Managed hosting",
+  "Maintenance options",
+  "Search engine basics",
+  "Clear launch support"
+];
+
 export default async function Home() {
   const showPricing = await pricingPageFlag();
 
@@ -117,6 +126,40 @@ export default async function Home() {
                 <p className="mt-3 text-sm leading-6 text-ink/70">
                   The page makes it easier for visitors to understand the business and take the next step.
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-cream">
+        <div className="container grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+              What you get
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-semibold">
+              The website, launch and ongoing setup handled properly.
+            </h2>
+            <p className="mt-4 leading-7 text-ink/70">
+              A professional website is not just the design. I help with the
+              practical pieces around it too, so you are not left trying to
+              untangle domains, hosting, updates or technical setup yourself.
+            </p>
+            <Link
+              href="/services"
+              className="mt-6 inline-flex rounded bg-ink px-5 py-4 font-bold text-white hover:bg-clay"
+            >
+              View Services
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {ownershipFeatures.map((feature) => (
+              <div
+                key={feature}
+                className="rounded-lg border border-line bg-white p-5 font-bold"
+              >
+                {feature}
               </div>
             ))}
           </div>

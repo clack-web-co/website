@@ -72,6 +72,7 @@ export const fallbackServices: ServicePlan[] = [
       "Mobile-friendly design",
       "Contact form and click-to-call details",
       "Basic search engine setup",
+      "Secure launch with hosting and domain guidance",
       "Launch support"
     ]
   },
@@ -84,6 +85,7 @@ export const fallbackServices: ServicePlan[] = [
       "Portfolio or gallery section",
       "Testimonials and trust-building content",
       "Service pages written in plain language",
+      "Managed hosting setup and domain connection",
       "Simple training for content updates"
     ]
   },
@@ -96,6 +98,7 @@ export const fallbackServices: ServicePlan[] = [
       "Booking or ecommerce setup",
       "Advanced forms and customer flows",
       "Content management system setup",
+      "Maintenance, updates and recovery planning",
       "Priority launch and support plan"
     ]
   }
