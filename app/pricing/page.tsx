@@ -30,15 +30,15 @@ export default async function PricingPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Pricing", path: "/pricing" }]} />
-      <section className="section bg-cream">
+      <section className="section bg-paper">
         <div className="container">
         <div className="max-w-3xl">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">Services and pricing</p>
-          <h1 className="mt-4 font-display text-5xl font-semibold">Clear packages. No hidden fees.</h1>
+          <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">Services and pricing</p>
+          <h1 className="mt-4 font-display text-5xl font-semibold">Website packages and prices.</h1>
           <p className="mt-5 text-lg leading-8 text-ink/70">
-            Choose the level that fits your business today. Every package is
-            designed to create a polished, practical website that helps customers
-            understand what you do and get in touch. All prices are in GBP.
+            A rough guide to what different types of small business website cost.
+            After a quick call, I can give you a fixed scope, price and likely
+            timeline. All prices are in GBP.
           </p>
         </div>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -50,16 +50,15 @@ export default async function PricingPage() {
           <div>
             <h2 className="font-display text-4xl font-semibold">Common questions</h2>
             <p className="mt-4 leading-7 text-ink/70">
-              The goal is to make the process feel straightforward from the
-              first conversation through launch.
+              A few practical details before you get in touch.
             </p>
-            <Link href="/contact" className="mt-6 inline-flex rounded bg-clay px-5 py-4 font-bold text-white hover:bg-ink">
+            <Link href="/contact" className="mt-6 inline-flex bg-ink px-5 py-4 font-bold text-white hover:bg-rust">
               Ask About Your Website
             </Link>
           </div>
           <div className="grid gap-4">
             {faqs.map(([question, answer]) => (
-              <details key={question} className="rounded-lg border border-line bg-white p-5">
+              <details key={question} className="border border-line bg-white p-5">
                 <summary className="cursor-pointer font-bold">{question}</summary>
                 <p className="mt-3 text-sm leading-6 text-ink/70">{answer}</p>
               </details>

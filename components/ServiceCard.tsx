@@ -8,14 +8,14 @@ type ServiceCardProps = {
 export default function ServiceCard({ plan, featured = false }: ServiceCardProps) {
   return (
     <article
-      className={`rounded-lg border p-6 ${
+      className={`border p-6 ${
         featured
           ? "border-clay bg-white shadow-soft"
-          : "border-line bg-white/75 shadow-sm"
+          : "border-line bg-white shadow-sm"
       }`}
     >
       {featured ? (
-        <p className="mb-4 inline-flex rounded bg-clay px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">
+        <p className="mb-4 inline-flex bg-rust px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">
           Most popular
         </p>
       ) : null}
@@ -25,7 +25,7 @@ export default function ServiceCard({ plan, featured = false }: ServiceCardProps
       <ul className="mt-6 grid gap-3 text-sm text-ink/80">
         {plan.features.map((feature) => (
           <li key={feature} className="flex gap-3">
-            <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-moss" />
+            <span className="mt-2 h-px w-4 shrink-0 bg-moss" />
             <span>{feature}</span>
           </li>
         ))}
