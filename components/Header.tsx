@@ -26,7 +26,7 @@ export default function Header({ showPricing }: HeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-cream/92 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/94 backdrop-blur">
       <div className="container flex min-h-20 items-center justify-between gap-5">
         <Link
           href="/"
@@ -34,10 +34,10 @@ export default function Header({ showPricing }: HeaderProps) {
           aria-label="Clack Web Co. home"
           onClick={closeMenu}
         >
-          <span className="grid h-10 w-10 place-items-center rounded bg-ink text-sm font-bold text-white">
+          <span className="grid h-10 w-10 place-items-center border border-ink bg-ink text-sm font-bold text-white">
             C
           </span>
-          <span className="text-sm font-bold uppercase tracking-[0.18em] text-ink">
+          <span className="text-sm font-bold uppercase tracking-[0.16em] text-ink">
             Clack Web Co.
           </span>
         </Link>
@@ -51,14 +51,14 @@ export default function Header({ showPricing }: HeaderProps) {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden rounded bg-clay px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-ink sm:inline-flex"
+            className="hidden bg-ink px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-rust sm:inline-flex"
             onClick={closeMenu}
           >
-            Get Started
+            Start a Project
           </Link>
           <button
             type="button"
-            className="grid h-11 w-11 place-items-center rounded border border-ink/15 bg-white text-ink shadow-sm md:hidden"
+            className="grid h-11 w-11 place-items-center border border-ink/15 bg-white text-ink shadow-sm md:hidden"
             aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
@@ -86,7 +86,7 @@ export default function Header({ showPricing }: HeaderProps) {
       </div>
       <nav
         id="mobile-navigation"
-        className={`grid overflow-hidden border-t bg-cream transition-[grid-template-rows,opacity,transform,visibility,border-color] duration-200 ease-out motion-reduce:transition-none md:hidden ${
+        className={`grid overflow-hidden border-t bg-paper transition-[grid-template-rows,opacity,transform,visibility,border-color] duration-200 ease-out motion-reduce:transition-none md:hidden ${
           isOpen
             ? "visible translate-y-0 border-line opacity-100 [grid-template-rows:1fr]"
             : "invisible -translate-y-2 border-transparent opacity-0 [grid-template-rows:0fr]"
@@ -100,7 +100,7 @@ export default function Header({ showPricing }: HeaderProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded border border-transparent px-3 py-3 text-base font-bold text-ink transition hover:border-line hover:bg-white"
+                className="border border-transparent px-3 py-3 text-base font-bold text-ink transition hover:border-line hover:bg-white"
                 onClick={closeMenu}
                 tabIndex={isOpen ? undefined : -1}
               >
@@ -109,11 +109,11 @@ export default function Header({ showPricing }: HeaderProps) {
             ))}
             <Link
               href="/contact"
-              className="mt-2 rounded bg-clay px-4 py-4 text-center font-bold text-white transition hover:bg-ink"
+              className="mt-2 bg-ink px-4 py-4 text-center font-bold text-white transition hover:bg-rust"
               onClick={closeMenu}
               tabIndex={isOpen ? undefined : -1}
             >
-              Get Started
+              Start a Project
             </Link>
           </div>
         </div>

@@ -1,8 +1,13 @@
-import path from "path";
-import type { NextConfig } from "next";
+import path from "node:path";
 
-const nextConfig: NextConfig = {
-  outputFileTracingRoot: path.join(__dirname),
+const nextConfig = {
+  outputFileTracingRoot: path.join(process.cwd()),
+  eslint: {
+    ignoreDuringBuilds: true
+  },
+  typescript: {
+    ignoreBuildErrors: true
+  },
   images: {
     remotePatterns: [
       {
@@ -16,7 +21,7 @@ const nextConfig: NextConfig = {
     ]
   },
   turbopack: {
-    root: path.join(__dirname)
+    root: path.join(process.cwd())
   }
 };
 

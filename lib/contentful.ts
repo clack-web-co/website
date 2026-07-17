@@ -40,16 +40,16 @@ export const fallbackPortfolio: PortfolioItem[] = [
     slug: "jude-c-fitness",
     industry: "Fitness coaching",
     summary:
-      "A focused website for a fitness coach, giving potential clients a clear place to understand the offer and make contact.",
+      "A website for a fitness coach with service information and an enquiry route.",
     problem:
-      "The business needed a dedicated online presence that felt more professional than relying on scattered social links alone.",
+      "The business needed one place to send people instead of relying on social links.",
     results:
-      "A clearer first impression for prospective clients and a direct path to enquire about coaching.",
+      "A live site with coaching information, contact details and a simple enquiry path.",
     services: [
-      "Customer-focused page structure",
+      "Page structure",
       "Responsive website design",
-      "Clear coaching enquiry journey",
-      "Launch-ready business website"
+      "Coaching enquiry route",
+      "Website launch"
     ],
     liveUrl: "https://judecfitness.com",
     previewImage:
@@ -65,41 +65,41 @@ export const fallbackPortfolio: PortfolioItem[] = [
 export const fallbackServices: ServicePlan[] = [
   {
     name: "Starter",
-    description: "A sharp, credible website for businesses that need the essentials done properly.",
+    description: "A small website for businesses that need the basics covered.",
     price: "£500-£800",
     features: [
-      "Professional homepage and key business information",
+      "Homepage and key business information",
       "Mobile-friendly design",
       "Contact form and click-to-call details",
       "Basic search engine setup",
-      "Secure launch with hosting and domain guidance",
+      "Hosting and domain guidance",
       "Launch support"
     ]
   },
   {
     name: "Professional",
-    description: "A fuller site for businesses that want to show proof, services, and customer trust.",
+    description: "A larger site for businesses with more services, photos or project work to show.",
     price: "£1,000-£1,500",
     features: [
       "Everything in Starter",
       "Portfolio or gallery section",
-      "Testimonials and trust-building content",
+      "Testimonials or project examples",
       "Service pages written in plain language",
-      "Managed hosting setup and domain connection",
-      "Simple training for content updates"
+      "Hosting setup and domain connection",
+      "Simple handover for content updates"
     ]
   },
   {
     name: "Premium",
-    description: "A custom website for businesses that need booking, ecommerce, or advanced workflows.",
+    description: "A custom website for businesses that need booking, ecommerce, or more complex forms.",
     price: "£2,000+",
     features: [
       "Everything in Professional",
       "Booking or ecommerce setup",
-      "Advanced forms and customer flows",
+      "Advanced forms",
       "Content management system setup",
-      "Maintenance, updates and recovery planning",
-      "Priority launch and support plan"
+      "Maintenance and updates",
+      "Launch and support plan"
     ]
   }
 ];
@@ -116,8 +116,8 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
     title: String(entry.fields.title ?? "Untitled project"),
     slug: String(entry.fields.slug ?? ""),
     industry: String(entry.fields.industry ?? "Local business"),
-    summary: "A professional website designed to make the business easier to trust and contact.",
-    problem: "The business needed a clearer, more credible online presence.",
+    summary: "A website built to explain the business and make it easier to get in touch.",
+    problem: "The business needed a clearer website.",
     results: String(entry.fields.results ?? "A simpler path from first visit to enquiry."),
     services: Array.isArray(entry.fields.services)
       ? entry.fields.services.map(String)

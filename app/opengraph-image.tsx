@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Clack Web Co. - professional websites for North East businesses";
+export const alt = "Clack Web Co. - websites for North East businesses";
 export const size = {
   width: 1200,
   height: 630
@@ -51,10 +51,10 @@ export default function OpenGraphImage() {
             lineHeight: 1.08
           }}
         >
-          Professional websites for North East businesses.
+          Websites for North East businesses.
         </div>
         <div style={{ display: "flex", fontSize: 26, color: "#53665d" }}>
-          Clear, credible and built to win enquiries.
+          Design, build, hosting and launch.
         </div>
       </div>
     ),

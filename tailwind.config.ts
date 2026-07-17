@@ -12,6 +12,9 @@ const config: Config = {
         moss: "#4a6f5a",
         clay: "#c6694f",
         cream: "#f8f4ed",
+        paper: "#fbfaf6",
+        rust: "#9f513d",
+        blue: "#345f78",
         line: "#e4ded3"
       },
       boxShadow: {

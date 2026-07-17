@@ -44,30 +44,30 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 rounded-lg bg-white p-6 shadow-soft">
+    <form onSubmit={handleSubmit} className="grid gap-5 border border-line bg-white p-6 shadow-soft">
       <div className="grid gap-5 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold">
           Business name
-          <input name="businessName" required className="rounded border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
+          <input name="businessName" required className="border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
         </label>
         <label className="grid gap-2 text-sm font-semibold">
           Business owner name
-          <input name="ownerName" required className="rounded border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
+          <input name="ownerName" required className="border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
         </label>
       </div>
       <div className="grid gap-5 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold">
           Email
-          <input name="email" type="email" required className="rounded border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
+          <input name="email" type="email" required className="border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
         </label>
         <label className="grid gap-2 text-sm font-semibold">
           Phone
-          <input name="phone" type="tel" required className="rounded border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
+          <input name="phone" type="tel" required className="border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
         </label>
       </div>
       <label className="grid gap-2 text-sm font-semibold">
         Type of business
-        <select name="businessType" required className="rounded border border-line px-4 py-3 font-normal outline-none focus:border-moss">
+        <select name="businessType" required className="border border-line px-4 py-3 font-normal outline-none focus:border-moss">
           <option value="">Select one</option>
           {businessTypes.map((type) => (
             <option key={type}>{type}</option>
@@ -76,22 +76,22 @@ export default function ContactForm() {
       </label>
       <label className="grid gap-2 text-sm font-semibold">
         What do you need?
-        <textarea name="message" required rows={5} className="resize-y rounded border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
+        <textarea name="message" required rows={5} className="resize-y border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
       </label>
       <label className="grid gap-2 text-sm font-semibold">
         How did you hear about us?
-        <input name="referral" className="rounded border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
+        <input name="referral" className="border border-line px-4 py-3 font-normal outline-none focus:border-moss" />
       </label>
-      <button className="rounded bg-clay px-5 py-4 font-bold text-white transition hover:bg-ink">
+      <button className="bg-ink px-5 py-4 font-bold text-white transition hover:bg-rust">
         Request a Free Consultation
       </button>
       {status === "success" ? (
-        <p className="rounded bg-moss/10 px-4 py-3 text-sm font-semibold text-moss">
+        <p className="border-l-2 border-moss bg-moss/10 px-4 py-3 text-sm font-semibold text-moss">
           Thanks. Your enquiry has been captured and I will follow up shortly.
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="rounded bg-clay/10 px-4 py-3 text-sm font-semibold text-clay">
+        <p className="border-l-2 border-rust bg-clay/10 px-4 py-3 text-sm font-semibold text-rust">
           Something went wrong. Please try again or email me directly.
         </p>
       ) : null}

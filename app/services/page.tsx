@@ -14,22 +14,22 @@ const services = [
   {
     name: "Small business websites",
     description:
-      "A clear, credible website that explains what you do, builds trust and gives customers an obvious way to contact you."
+      "A website with the main pages your business needs: home, services, about and contact."
   },
   {
     name: "Website redesigns",
     description:
-      "A practical refresh for an outdated or unclear website, with stronger messaging, mobile usability and customer journeys."
+      "Updates for a site that looks old, reads badly, or does not work well on phones."
   },
   {
     name: "Booking and ecommerce",
     description:
-      "Booking, payment and online shop features shaped around how your customers actually buy or arrange your services."
+      "Booking, payment and shop features set up around how you take orders or appointments."
   },
   {
     name: "Ongoing website support",
     description:
-      "Straightforward help with content changes, new pages and improvements after launch, without technical jargon."
+      "Help with edits, new pages and fixes after the site is live."
   }
 ];
 
@@ -37,7 +37,7 @@ const included = [
   {
     name: "Secure website setup",
     description:
-      "Your site is launched with HTTPS, sensible form handling and privacy-aware setup so customers can browse and enquire with confidence."
+      "HTTPS, form handling and basic privacy setup included."
   },
   {
     name: "Domain management",
@@ -47,22 +47,22 @@ const included = [
   {
     name: "Managed hosting",
     description:
-      "Fast, reliable hosting is arranged for you, with deployment handled so you do not need to touch servers or control panels."
+      "Hosting and deployment set up so you do not need to manage servers."
   },
   {
     name: "Maintenance and updates",
     description:
-      "After launch, you can ask for content changes, new sections, fixes or improvements without having to manage the website yourself."
+      "Content changes, new sections, fixes and small improvements after launch."
   },
   {
     name: "Backups and recovery route",
     description:
-      "The project is kept in version control, giving your website a clear recovery path if something ever needs to be rolled back."
+      "The project is kept in version control so changes can be tracked."
   },
   {
     name: "Search and analytics basics",
     description:
-      "Core SEO foundations, page titles, descriptions and analytics guidance are included so the site is ready to be found and measured."
+      "Page titles, descriptions, sitemap setup and analytics guidance."
   }
 ];
 
@@ -70,22 +70,22 @@ const process = [
   {
     name: "Understand the business",
     description:
-      "We discuss your customers, your current online presence and the action the website needs visitors to take."
+      "We go through what pages you need and what content you already have."
   },
   {
     name: "Shape the content and design",
     description:
-      "I organise the message and page structure, then create a professional design suited to your business."
+      "I organise the page structure and design the site."
   },
   {
     name: "Build and test",
     description:
-      "The site is built for phones and larger screens, then checked for usability, accessibility and performance."
+      "The site is built for phones, tablets and larger screens."
   },
   {
     name: "Launch and support",
     description:
-      "I handle the launch and provide a clear route for updates or future improvements."
+      "I handle launch and can help with changes after it is live."
   }
 ];
 
@@ -93,20 +93,19 @@ export default function ServicesPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Services", path: "/services" }]} />
-      <section className="section bg-cream">
+      <section className="section bg-paper">
         <div className="container grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+            <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">
               Web design services
             </p>
             <h1 className="mt-4 max-w-4xl font-display text-5xl font-semibold">
-              Professional websites for North East small businesses.
+              Websites, redesigns and support.
             </h1>
           </div>
           <p className="text-lg leading-8 text-ink/70">
-            Based in North East England, I work with business owners in person
-            and online to create websites that are easier to trust, understand
-            and act on.
+            If your current site is missing, dated, hard to update or not
+            explaining the business properly, I can help sort it.
           </p>
         </div>
       </section>
@@ -114,14 +113,14 @@ export default function ServicesPage() {
       <section className="section bg-white">
         <div className="container">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
               Website services
             </p>
             <h2 className="mt-3 font-display text-4xl font-semibold">
-              Built around what your business needs to sell, book or explain.
+              What I can help with.
             </h2>
           </div>
-          <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+          <div className="mt-10 grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2">
             {services.map((service) => (
               <article key={service.name} className="bg-white p-7 sm:p-8">
                 <h2 className="text-xl font-bold">{service.name}</h2>
@@ -137,21 +136,20 @@ export default function ServicesPage() {
       <section className="section bg-white pt-0">
         <div className="container grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
               Handled for you
             </p>
             <h2 className="mt-3 font-display text-4xl font-semibold">
-              More than a nice-looking page.
+              Setup included.
             </h2>
             <p className="mt-4 leading-7 text-ink/70">
-              The practical setup around the website matters too. I help with
-              the pieces that make the site secure, live, maintainable and easy
-              to keep moving after launch.
+              The practical work matters. I can help with domains, hosting,
+              forms, search basics, updates and launch.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {included.map((item) => (
-              <article key={item.name} className="rounded-lg border border-line p-5">
+              <article key={item.name} className="border border-line bg-white p-5">
                 <h3 className="font-bold">{item.name}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink/70">
                   {item.description}
@@ -162,20 +160,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section bg-cream">
+      <section className="section bg-paper">
         <div className="container grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-moss">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
               The process
             </p>
             <h2 className="mt-3 font-display text-4xl font-semibold">
-              A straightforward route from idea to launch.
+              How the work usually runs.
             </h2>
           </div>
           <ol className="grid gap-8 sm:grid-cols-2">
             {process.map((step, index) => (
               <li key={step.name} className="border-t border-line pt-5">
-                <p className="text-sm font-bold text-clay">0{index + 1}</p>
+                <p className="font-display text-3xl font-semibold text-rust">0{index + 1}</p>
                 <h3 className="mt-3 text-lg font-bold">{step.name}</h3>
                 <p className="mt-2 text-sm leading-6 text-ink/70">
                   {step.description}
@@ -190,15 +188,15 @@ export default function ServicesPage() {
         <div className="container flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
             <h2 className="font-display text-4xl font-semibold">
-              Tell me what your website needs to achieve.
+              Tell me what you need built.
             </h2>
             <p className="mt-3 text-white/70">
-              You will get a clear recommendation, scope and next step.
+              I will reply with the next step, price range and likely timeline.
             </p>
           </div>
           <Link
             href="/contact"
-            className="shrink-0 rounded bg-white px-6 py-4 font-bold text-ink hover:bg-cream"
+            className="shrink-0 bg-white px-6 py-4 font-bold text-ink hover:bg-paper"
           >
             Request a Consultation
           </Link>
