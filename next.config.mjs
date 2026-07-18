@@ -6,7 +6,8 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   typescript: {
-    ignoreBuildErrors: true
+    ignoreBuildErrors: true,
+    tsconfigPath: "tsconfig.build.json"
   },
   images: {
     remotePatterns: [

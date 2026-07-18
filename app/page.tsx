@@ -51,6 +51,29 @@ const commonProblems = [
   "You do not want to sort domains, hosting or forms yourself"
 ];
 
+const builderComparison = [
+  {
+    title: "A builder gives you the tools",
+    detail:
+      "You still have to plan the pages, write the words, choose the layout and connect everything."
+  },
+  {
+    title: "I shape the site around the business",
+    detail:
+      "We work out what customers need to see, then I turn that into a clear, mobile-friendly site."
+  },
+  {
+    title: "The setup is handled for you",
+    detail:
+      "Forms, hosting, domain connection and launch are part of the job, not extra homework."
+  },
+  {
+    title: "You have someone to come back to",
+    detail:
+      "If something needs changing later, you can ask me instead of digging through settings."
+  }
+];
+
 const businessTypes = [
   "Trades",
   "Fitness coaches",
@@ -74,7 +97,7 @@ export default async function Home() {
   return (
     <>
       <section className="bg-paper">
-        <div className="container grid min-h-[calc(100vh-80px)] gap-10 py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-end lg:py-16">
+        <div className="container grid gap-10 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-center lg:py-24">
           <div className="pb-4">
             <p className="max-w-md border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">
               Web design in North East England
@@ -170,6 +193,34 @@ export default async function Home() {
               >
                 {problem}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-paper">
+        <div className="container grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
+              Wix and Squarespace
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-semibold">
+              A builder gives you the tools. I do the work.
+            </h2>
+            <p className="mt-4 leading-7 text-ink/70">
+              Website builders can be fine if you want to do it yourself. Most
+              business owners do not get stuck because the tool is impossible;
+              they get stuck on the time, wording, layout, setup and launch.
+            </p>
+          </div>
+          <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
+            {builderComparison.map((item) => (
+              <article key={item.title} className="bg-white p-6">
+                <h3 className="text-lg font-bold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-ink/70">
+                  {item.detail}
+                </p>
+              </article>
             ))}
           </div>
         </div>
