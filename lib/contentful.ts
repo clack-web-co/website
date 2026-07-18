@@ -64,42 +64,44 @@ export const fallbackPortfolio: PortfolioItem[] = [
 
 export const fallbackServices: ServicePlan[] = [
   {
-    name: "Starter",
-    description: "A small website for businesses that need the basics covered.",
-    price: "£500-£800",
+    name: "Starter site",
+    description: "A small website for businesses that need one clear place to send people.",
+    price: "From £750",
     features: [
-      "Homepage and key business information",
+      "1-3 pages",
+      "Key business information",
       "Mobile-friendly design",
       "Contact form and click-to-call details",
-      "Basic search engine setup",
-      "Hosting and domain guidance",
+      "Basic analytics and search setup",
       "Launch support"
     ]
   },
   {
-    name: "Professional",
-    description: "A larger site for businesses with more services, photos or project work to show.",
-    price: "£1,000-£1,500",
+    name: "Business site",
+    description: "A fuller website for businesses with more services, photos or proof to show.",
+    price: "From £1,200",
     features: [
-      "Everything in Starter",
+      "4-6 pages",
+      "Clear service pages",
       "Portfolio or gallery section",
       "Testimonials or project examples",
-      "Service pages written in plain language",
+      "Basic analytics and search setup",
       "Hosting setup and domain connection",
-      "Simple handover for content updates"
+      "Launch support"
     ]
   },
   {
-    name: "Premium",
-    description: "A custom website for businesses that need booking, ecommerce, or more complex forms.",
-    price: "£2,000+",
+    name: "Larger site",
+    description: "A more structured site for businesses with several services, locations or content needs.",
+    price: "From £1,800",
     features: [
-      "Everything in Professional",
-      "Booking or ecommerce setup",
+      "7+ pages",
+      "More detailed page structure",
+      "Booking or enquiry form setup",
       "Advanced forms",
-      "Content management system setup",
-      "Maintenance and updates",
-      "Launch and support plan"
+      "Content management setup if needed",
+      "Basic analytics and search setup",
+      "Launch support"
     ]
   }
 ];

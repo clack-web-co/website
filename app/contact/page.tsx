@@ -24,6 +24,10 @@ export default function ContactPage() {
             Send a few details about the website you want and I will reply with
             the next step.
           </p>
+          <p className="mt-4 max-w-2xl border-l-2 border-rust pl-4 text-base font-bold leading-7 text-ink">
+            A simple enquiry is free and does not lock you into anything. If I
+            am not the right fit, I will say so.
+          </p>
           <div className="mt-8 border border-line bg-white p-6">
             <h2 className="font-bold">What happens next?</h2>
             <ol className="mt-4 grid gap-3 text-sm leading-6 text-ink/75">

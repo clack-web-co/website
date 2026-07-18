@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
   { href: "/portfolio", label: "Portfolio" },
@@ -17,6 +18,14 @@ type HeaderProps = {
 
 export default function Header({ showPricing }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeMarker, setActiveMarker] = useState({
+    left: 0,
+    width: 0,
+    ready: false
+  });
+  const pathname = usePathname();
+  const desktopNavRef = useRef<HTMLElement>(null);
+  const desktopLinkRefs = useRef(new Map<string, HTMLAnchorElement>());
   const visibleNavItems = showPricing
     ? navItems
     : navItems.filter((item) => item.href !== "/pricing");
@@ -24,6 +33,38 @@ export default function Header({ showPricing }: HeaderProps) {
   function closeMenu() {
     setIsOpen(false);
   }
+
+  function isActivePath(href: string) {
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
+
+  const activeNavItem = visibleNavItems.find((item) => isActivePath(item.href));
+
+  useEffect(() => {
+    function updateMarker() {
+      if (!activeNavItem || !desktopNavRef.current) {
+        setActiveMarker((current) => ({ ...current, ready: false }));
+        return;
+      }
+
+      const activeLink = desktopLinkRefs.current.get(activeNavItem.href);
+      if (!activeLink) return;
+
+      const navRect = desktopNavRef.current.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+
+      setActiveMarker({
+        left: linkRect.left - navRect.left,
+        width: linkRect.width,
+        ready: true
+      });
+    }
+
+    updateMarker();
+    window.addEventListener("resize", updateMarker);
+
+    return () => window.removeEventListener("resize", updateMarker);
+  }, [activeNavItem]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/94 backdrop-blur">
@@ -41,12 +82,45 @@ export default function Header({ showPricing }: HeaderProps) {
             Clack Web Co.
           </span>
         </Link>
-        <nav className="hidden items-center gap-7 text-sm font-semibold text-ink/75 md:flex">
-          {visibleNavItems.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-ink">
-              {item.label}
-            </Link>
-          ))}
+        <nav
+          ref={desktopNavRef}
+          className="relative hidden items-center gap-7 text-sm font-semibold text-ink/75 md:flex"
+        >
+          <span
+            className={`absolute bottom-0 h-0.5 bg-rust transition-[transform,width,opacity] duration-300 ease-out motion-reduce:transition-none ${
+              activeMarker.ready ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              width: activeMarker.width,
+              transform: `translateX(${activeMarker.left}px)`
+            }}
+            aria-hidden="true"
+          />
+          {visibleNavItems.map((item) => {
+            const isActive = isActivePath(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                ref={(element) => {
+                  if (element) {
+                    desktopLinkRefs.current.set(item.href, element);
+                  } else {
+                    desktopLinkRefs.current.delete(item.href);
+                  }
+                }}
+                className={`py-2 transition ${
+                  isActive
+                    ? "text-ink"
+                    : "hover:text-ink"
+                }`}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
         <div className="flex items-center gap-3">
           <Link
@@ -96,17 +170,26 @@ export default function Header({ showPricing }: HeaderProps) {
       >
         <div className="min-h-0 overflow-hidden">
           <div className="container grid gap-2 py-4">
-            {visibleNavItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="border border-transparent px-3 py-3 text-base font-bold text-ink transition hover:border-line hover:bg-white"
-                onClick={closeMenu}
-                tabIndex={isOpen ? undefined : -1}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {visibleNavItems.map((item) => {
+              const isActive = isActivePath(item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`border px-3 py-3 text-base font-bold transition ${
+                    isActive
+                      ? "border-rust bg-white text-ink"
+                      : "border-transparent text-ink hover:border-line hover:bg-white"
+                  }`}
+                  onClick={closeMenu}
+                  tabIndex={isOpen ? undefined : -1}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contact"
               className="mt-2 bg-ink px-4 py-4 text-center font-bold text-white transition hover:bg-rust"

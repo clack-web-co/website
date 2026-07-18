@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: "Web Design Services in North East England",
   description:
-    "Professional website design, redesigns, booking and ecommerce setup, and ongoing support for North East small businesses.",
+    "Professional website design, redesigns, booking forms, contact forms and ongoing support for North East small businesses.",
   path: "/services"
 });
 
@@ -22,9 +22,9 @@ const services = [
       "Updates for a site that looks old, reads badly, or does not work well on phones."
   },
   {
-    name: "Booking and ecommerce",
+    name: "Booking and enquiry forms",
     description:
-      "Booking, payment and shop features set up around how you take orders or appointments."
+      "Simple booking, enquiry and contact routes set up around how people get in touch."
   },
   {
     name: "Ongoing website support",
