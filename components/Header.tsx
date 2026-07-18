@@ -71,13 +71,10 @@ export default function Header({ showPricing }: HeaderProps) {
       <div className="container flex min-h-20 items-center justify-between gap-5">
         <Link
           href="/"
-          className="flex items-center gap-3"
+          className="flex items-center"
           aria-label="Clack Web Co. home"
           onClick={closeMenu}
         >
-          <span className="grid h-10 w-10 place-items-center border border-ink bg-ink text-sm font-bold text-white">
-            C
-          </span>
           <span className="text-sm font-bold uppercase tracking-[0.16em] text-ink">
             Clack Web Co.
           </span>
