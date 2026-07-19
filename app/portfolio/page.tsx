@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import PortfolioCard from "@/components/PortfolioCard";
 import { getPortfolioItems } from "@/lib/contentful";
@@ -28,6 +29,14 @@ export default async function PortfolioPage() {
               live project for Jude C Fitness: a site for a fitness coach who
               needed somewhere clear to send potential clients.
             </p>
+            {items[0] ? (
+              <Link
+                href={`/portfolio/${items[0].slug}`}
+                className="mt-6 inline-flex bg-ink px-5 py-4 font-bold text-white hover:bg-rust"
+              >
+                View the Case Study
+              </Link>
+            ) : null}
           </div>
           <div className="mt-8 flex flex-wrap gap-3" data-reveal="lift">
             {industries.map((industry) => (

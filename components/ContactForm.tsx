@@ -66,6 +66,7 @@ const concernOptions = [
 ];
 
 export default function ContactForm() {
+  const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 
@@ -96,8 +97,42 @@ export default function ContactForm() {
     }
   }
 
+  if (!isOpen) {
+    return (
+      <div className="self-start border border-line bg-white p-6 shadow-sm" data-reveal="lift">
+        <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-end">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-moss">
+              Project enquiry
+            </p>
+            <h2 className="mt-2 text-2xl font-bold">Start with a few quick questions.</h2>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-ink/70">
+              It takes about 30 seconds and gives me the basics before we talk.
+            </p>
+            <p className="mt-3 text-sm font-semibold leading-6 text-ink/65">
+              Free to send. No obligation.
+            </p>
+          </div>
+          <button
+            type="button"
+            className="w-full bg-ink px-5 py-4 font-bold text-white transition hover:bg-rust sm:w-auto"
+            onClick={() => setIsOpen(true)}
+            aria-controls="project-enquiry-form"
+          >
+            Start enquiry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="grid gap-7 border border-line bg-white p-6 shadow-soft" data-reveal="lift">
+    <form
+      id="project-enquiry-form"
+      onSubmit={handleSubmit}
+      className="grid gap-7 border border-line bg-white p-6 shadow-soft"
+      data-reveal="lift"
+    >
       <div>
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-moss">
           Project enquiry

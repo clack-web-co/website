@@ -107,6 +107,20 @@ export default function ServicesPage() {
             If your current site is missing, dated, hard to update or not
             explaining the business properly, I can help sort it.
           </p>
+          <div className="flex flex-col gap-3 sm:flex-row lg:col-span-2">
+            <Link
+              href="/contact"
+              className="bg-ink px-5 py-4 text-center font-bold text-white hover:bg-rust"
+            >
+              Start an Enquiry
+            </Link>
+            <Link
+              href="/pricing"
+              className="border border-ink/20 px-5 py-4 text-center font-bold text-ink hover:border-ink hover:bg-white"
+            >
+              See Pricing
+            </Link>
+          </div>
         </div>
       </section>
 

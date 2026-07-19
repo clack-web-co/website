@@ -40,6 +40,12 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
         </p>
         <h3 className="mt-3 text-xl font-bold">{item.title}</h3>
         <p className="mt-3 text-sm leading-6 text-ink/70">{item.summary}</p>
+        <Link
+          href={`/portfolio/${item.slug}`}
+          className="mt-5 inline-flex border border-ink/20 px-4 py-3 text-sm font-bold text-ink hover:border-ink hover:bg-paper"
+        >
+          View Project
+        </Link>
         <p className="mt-4 border-l-2 border-rust bg-paper px-3 py-2 text-sm font-semibold text-ink">
           {item.results}
         </p>
@@ -51,12 +57,6 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             {item.testimonial.author}
           </figcaption>
         </figure>
-        <Link
-          href={`/portfolio/${item.slug}`}
-          className="mt-5 inline-flex text-sm font-bold text-rust hover:text-ink"
-        >
-          View project
-        </Link>
       </div>
     </article>
   );

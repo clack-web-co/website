@@ -1,13 +1,16 @@
 import path from "node:path";
+import { PHASE_PRODUCTION_BUILD } from "next/constants.js";
 
-const nextConfig = {
+const createNextConfig = (phase) => ({
   outputFileTracingRoot: path.join(process.cwd()),
   eslint: {
     ignoreDuringBuilds: true
   },
   typescript: {
     ignoreBuildErrors: true,
-    tsconfigPath: "tsconfig.build.json"
+    ...(phase === PHASE_PRODUCTION_BUILD
+      ? { tsconfigPath: "tsconfig.build.json" }
+      : {})
   },
   images: {
     remotePatterns: [
@@ -20,10 +23,7 @@ const nextConfig = {
         hostname: "image.thum.io"
       }
     ]
-  },
-  turbopack: {
-    root: path.join(process.cwd())
   }
-};
+});
 
-export default nextConfig;
+export default createNextConfig;

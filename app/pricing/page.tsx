@@ -81,99 +81,113 @@ export default async function PricingPage() {
       <BreadcrumbJsonLd items={[{ name: "Pricing", path: "/pricing" }]} />
       <section className="section bg-paper" data-reveal="fade">
         <div className="container">
-        <div className="max-w-3xl">
-          <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">Services and pricing</p>
-          <h1 className="mt-4 font-display text-5xl font-semibold">Website packages and prices.</h1>
-          <p className="mt-5 text-lg leading-8 text-ink/70">
-            Pay once to get the site built. Add monthly care only if you want me
-            to keep it looked after. After a quick call, I can give you a fixed
-            scope, price and likely timeline. All prices are in GBP.
-          </p>
-        </div>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {plans.map((plan, index) => (
-            <ServiceCard key={plan.name} plan={plan} featured={index === 1} />
-          ))}
-        </div>
-        <div className="mt-10 grid gap-10 border border-line bg-white p-6 lg:grid-cols-[0.7fr_1.3fr]" data-reveal="lift">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
-              Included with every build
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-semibold">
-              The basics are part of launch.
-            </h2>
-          </div>
-          <div className="grid border-t border-line sm:grid-cols-2">
-            {includedWithBuild.map((item) => (
-              <div
-                key={item}
-                className="border-b border-line py-4 font-bold sm:odd:border-r sm:odd:pr-5 sm:even:pl-5"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mt-16">
           <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
-              Optional monthly care
+            <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">Services and pricing</p>
+            <h1 className="mt-4 font-display text-5xl font-semibold">Website packages and prices.</h1>
+            <p className="mt-5 text-lg leading-8 text-ink/70">
+              Pay once to get the site built. Add monthly care only if you want me
+              to keep it looked after. After a quick call, I can give you a fixed
+              scope, price and likely timeline. All prices are in GBP.
             </p>
-            <h2 className="mt-3 font-display text-4xl font-semibold">
-              Keep it looked after after launch.
-            </h2>
-            <p className="mt-4 leading-7 text-ink/70">
-              Monthly care is for hosting, updates, small fixes and keeping an
-              eye on the basics. It is useful if you do not want the site to
-              become another thing on your list.
-            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="bg-ink px-5 py-4 text-center font-bold text-white hover:bg-rust"
+              >
+                Start an Enquiry
+              </Link>
+              <a
+                href="#packages"
+                className="border border-ink/20 px-5 py-4 text-center font-bold text-ink hover:border-ink hover:bg-white"
+              >
+                View Packages
+              </a>
+            </div>
           </div>
-          <div className="mt-10 grid gap-px border border-line bg-line lg:grid-cols-3">
-            {monthlyCare.map((plan) => (
-              <article key={plan.name} className="bg-white p-6" data-reveal="lift">
-                <h3 className="text-2xl font-bold">{plan.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-ink/70">
-                  {plan.description}
-                </p>
-                <p className="mt-6 font-display text-3xl font-semibold">
-                  {plan.price}
-                </p>
-                <ul className="mt-6 grid gap-3 text-sm text-ink/80">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex gap-3">
-                      <span className="mt-2 h-px w-4 shrink-0 bg-moss" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+          <div id="packages" className="mt-10 scroll-mt-24 grid gap-6 lg:grid-cols-3">
+            {plans.map((plan, index) => (
+              <ServiceCard key={plan.name} plan={plan} featured={index === 1} />
             ))}
           </div>
-        </div>
-        <div className="mt-16 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]" data-reveal="lift">
-          <div>
-            <h2 className="font-display text-4xl font-semibold">Common questions</h2>
-            <p className="mt-4 leading-7 text-ink/70">
-              A few practical details before you get in touch.
-            </p>
-            <Link href="/contact" className="mt-6 inline-flex bg-ink px-5 py-4 font-bold text-white hover:bg-rust">
-              Ask About Your Website
-            </Link>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-ink/65">
-              A simple enquiry is free. It does not lock you into anything, and
-              I will tell you if I think I am a good fit.
-            </p>
+          <div className="mt-10 grid gap-10 border border-line bg-white p-6 lg:grid-cols-[0.7fr_1.3fr]" data-reveal="lift">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
+                Included with every build
+              </p>
+              <h2 className="mt-3 font-display text-4xl font-semibold">
+                The basics are part of launch.
+              </h2>
+            </div>
+            <div className="grid border-t border-line sm:grid-cols-2">
+              {includedWithBuild.map((item) => (
+                <div
+                  key={item}
+                  className="border-b border-line py-4 font-bold sm:odd:border-r sm:odd:pr-5 sm:even:pl-5"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid gap-4">
-            {faqs.map(([question, answer]) => (
-              <details key={question} className="border border-line bg-white p-5">
-                <summary className="cursor-pointer font-bold">{question}</summary>
-                <p className="mt-3 text-sm leading-6 text-ink/70">{answer}</p>
-              </details>
-            ))}
+          <div className="mt-16">
+            <div className="max-w-3xl">
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
+                Optional monthly care
+              </p>
+              <h2 className="mt-3 font-display text-4xl font-semibold">
+                Keep it looked after after launch.
+              </h2>
+              <p className="mt-4 leading-7 text-ink/70">
+                Monthly care is for hosting, updates, small fixes and keeping an
+                eye on the basics. It is useful if you do not want the site to
+                become another thing on your list.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-px border border-line bg-line lg:grid-cols-3">
+              {monthlyCare.map((plan) => (
+                <article key={plan.name} className="bg-white p-6" data-reveal="lift">
+                  <h3 className="text-2xl font-bold">{plan.name}</h3>
+                  <p className="mt-3 text-sm leading-6 text-ink/70">
+                    {plan.description}
+                  </p>
+                  <p className="mt-6 font-display text-3xl font-semibold">
+                    {plan.price}
+                  </p>
+                  <ul className="mt-6 grid gap-3 text-sm text-ink/80">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex gap-3">
+                        <span className="mt-2 h-px w-4 shrink-0 bg-moss" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+          <div className="mt-16 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]" data-reveal="lift">
+            <div>
+              <h2 className="font-display text-4xl font-semibold">Common questions</h2>
+              <p className="mt-4 leading-7 text-ink/70">
+                A few practical details before you get in touch.
+              </p>
+              <Link href="/contact" className="mt-6 inline-flex bg-ink px-5 py-4 font-bold text-white hover:bg-rust">
+                Ask About Your Website
+              </Link>
+              <p className="mt-3 max-w-sm text-sm leading-6 text-ink/65">
+                A simple enquiry is free. It does not lock you into anything, and
+                I will tell you if I think I am a good fit.
+              </p>
+            </div>
+            <div className="grid gap-4">
+              {faqs.map(([question, answer]) => (
+                <details key={question} className="border border-line bg-white p-5">
+                  <summary className="cursor-pointer font-bold">{question}</summary>
+                  <p className="mt-3 text-sm leading-6 text-ink/70">{answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </>

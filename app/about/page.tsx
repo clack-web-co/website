@@ -31,7 +31,7 @@ export default function AboutPage() {
       />
       <section className="section bg-paper" data-reveal="fade">
         <div className="container grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div data-reveal="lift">
+          <div className="order-2 lg:order-1" data-reveal="lift">
             <div className="aspect-[4/5] overflow-hidden border border-line bg-white shadow-soft">
               <Image
                 src="/images/joe-headshot.jpg"
@@ -43,7 +43,7 @@ export default function AboutPage() {
               />
             </div>
           </div>
-          <div data-reveal="lift">
+          <div className="order-1 lg:order-2" data-reveal="lift">
             <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">About</p>
             <h1 className="mt-4 font-display text-5xl font-semibold">About Joe Clack.</h1>
             <div className="mt-6 grid gap-5 text-lg leading-8 text-ink/72">
@@ -64,6 +64,9 @@ export default function AboutPage() {
                 person throughout the project.
               </p>
             </div>
+            <Link href="/contact" className="mt-8 inline-flex bg-ink px-6 py-4 font-bold text-white hover:bg-rust">
+              Start an Enquiry
+            </Link>
             <div className="mt-8 border border-line bg-white p-6">
               <h2 className="text-xl font-bold">What I help with</h2>
               <ul className="mt-5 grid gap-3 text-sm leading-6 text-ink/75">
@@ -73,9 +76,6 @@ export default function AboutPage() {
                 <li>Launching it and making changes later.</li>
               </ul>
             </div>
-            <Link href="/contact" className="mt-8 inline-flex bg-ink px-6 py-4 font-bold text-white hover:bg-rust">
-              Schedule a Consultation
-            </Link>
           </div>
         </div>
       </section>
