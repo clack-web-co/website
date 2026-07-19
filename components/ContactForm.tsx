@@ -44,7 +44,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 border border-line bg-white p-6 shadow-soft">
+    <form onSubmit={handleSubmit} className="grid gap-5 border border-line bg-white p-6 shadow-soft" data-reveal="lift">
       <div className="grid gap-5 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold">
           Business name

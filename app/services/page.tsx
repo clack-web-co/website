@@ -93,7 +93,7 @@ export default function ServicesPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Services", path: "/services" }]} />
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="fade">
         <div className="container grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
             <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -110,7 +110,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-white" data-reveal="lift">
         <div className="container">
           <div className="max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -122,7 +122,7 @@ export default function ServicesPage() {
           </div>
           <div className="mt-10 grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2">
             {services.map((service) => (
-              <article key={service.name} className="bg-white p-7 sm:p-8">
+              <article key={service.name} className="bg-white p-7 sm:p-8" data-reveal="lift">
                 <h2 className="text-xl font-bold">{service.name}</h2>
                 <p className="mt-3 leading-7 text-ink/70">
                   {service.description}
@@ -133,7 +133,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section bg-white pt-0">
+      <section className="section bg-white pt-0" data-reveal="lift">
         <div className="container grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -149,7 +149,7 @@ export default function ServicesPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {included.map((item) => (
-              <article key={item.name} className="border border-line bg-white p-5">
+              <article key={item.name} className="border border-line bg-white p-5" data-reveal="lift">
                 <h3 className="font-bold">{item.name}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink/70">
                   {item.description}
@@ -160,7 +160,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="lift">
         <div className="container grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -184,7 +184,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section bg-ink text-white">
+      <section className="section bg-ink text-white" data-reveal="fade">
         <div className="container flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
             <h2 className="font-display text-4xl font-semibold">

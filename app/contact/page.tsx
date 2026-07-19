@@ -14,7 +14,7 @@ export default function ContactPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Contact", path: "/contact" }]} />
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="fade">
         <div className="container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">Contact</p>

@@ -13,6 +13,7 @@ export default function ServiceCard({ plan, featured = false }: ServiceCardProps
           ? "border-clay bg-white shadow-soft"
           : "border-line bg-white shadow-sm"
       }`}
+      data-reveal="lift"
     >
       {featured ? (
         <p className="mb-4 inline-flex bg-rust px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">

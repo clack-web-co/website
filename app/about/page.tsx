@@ -29,9 +29,9 @@ export default function AboutPage() {
           }
         }}
       />
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="fade">
         <div className="container grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
+          <div data-reveal="lift">
             <div className="aspect-[4/5] overflow-hidden border border-line bg-white shadow-soft">
               <Image
                 src="/images/joe-headshot.jpg"
@@ -42,8 +42,8 @@ export default function AboutPage() {
                 priority
               />
             </div>
-        </div>
-          <div>
+          </div>
+          <div data-reveal="lift">
             <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">About</p>
             <h1 className="mt-4 font-display text-5xl font-semibold">About Joe Clack.</h1>
             <div className="mt-6 grid gap-5 text-lg leading-8 text-ink/72">

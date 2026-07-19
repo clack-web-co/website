@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import ScrollReveal from "@/components/ScrollReveal";
 import { pricingPageFlag } from "@/flags";
 import { allowSearchIndexing, siteConfig } from "@/lib/site";
 
@@ -78,6 +79,7 @@ export default async function RootLayout({
       <body>
         <JsonLd data={structuredData} />
         <Header showPricing={showPricing} />
+        <ScrollReveal />
         <main>{children}</main>
         <Footer showPricing={showPricing} />
         <Analytics />

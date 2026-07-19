@@ -96,7 +96,7 @@ export default async function Home() {
 
   return (
     <>
-      <section className="bg-paper">
+      <section className="bg-paper" data-reveal="fade">
         <div className="container grid gap-10 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-center lg:py-24">
           <div className="pb-4">
             <p className="max-w-md border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -170,7 +170,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-white" data-reveal="lift">
         <div className="container grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -198,7 +198,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="lift">
         <div className="container grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -215,7 +215,7 @@ export default async function Home() {
           </div>
           <div className="grid gap-px border border-line bg-line sm:grid-cols-2">
             {builderComparison.map((item) => (
-              <article key={item.title} className="bg-white p-6">
+              <article key={item.title} className="bg-white p-6" data-reveal="lift">
                 <h3 className="text-lg font-bold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink/70">
                   {item.detail}
@@ -226,7 +226,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="lift">
         <div className="container grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
@@ -249,7 +249,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-white" data-reveal="lift">
         <div className="container grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">Selected work</p>
@@ -265,7 +265,7 @@ export default async function Home() {
             <PortfolioCard item={featuredProject} />
             <div className="grid gap-4">
               {projectNotes.map((note) => (
-                <article key={note.title} className="border-t border-line pt-5">
+                <article key={note.title} className="border-t border-line pt-5" data-reveal="lift">
                   <h3 className="text-lg font-bold">{note.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-ink/70">{note.detail}</p>
                 </article>
@@ -282,7 +282,7 @@ export default async function Home() {
       </section>
 
       {showPricing ? (
-        <section className="section bg-cream">
+        <section className="section bg-cream" data-reveal="lift">
           <div className="container">
             <div className="grid gap-6 md:grid-cols-3">
               {fallbackServices.map((plan, index) => (
@@ -293,7 +293,7 @@ export default async function Home() {
         </section>
       ) : null}
 
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="lift">
         <div className="container grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">Working style</p>
@@ -318,7 +318,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section className="section bg-white" data-reveal="lift">
         <div className="container grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">

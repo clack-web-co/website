@@ -8,7 +8,7 @@ type PortfolioCardProps = {
 
 export default function PortfolioCard({ item }: PortfolioCardProps) {
   return (
-    <article className="overflow-hidden border border-line bg-white shadow-sm">
+    <article className="overflow-hidden border border-line bg-white shadow-sm" data-reveal="lift">
       <div className="aspect-[4/3] bg-paper p-3">
         {item.previewImage ? (
           <div className="h-full overflow-hidden border border-ink/10 bg-white shadow-soft">

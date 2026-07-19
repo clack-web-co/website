@@ -79,7 +79,7 @@ export default async function PricingPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Pricing", path: "/pricing" }]} />
-      <section className="section bg-paper">
+      <section className="section bg-paper" data-reveal="fade">
         <div className="container">
         <div className="max-w-3xl">
           <p className="border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">Services and pricing</p>
@@ -95,7 +95,7 @@ export default async function PricingPage() {
             <ServiceCard key={plan.name} plan={plan} featured={index === 1} />
           ))}
         </div>
-        <div className="mt-10 grid gap-10 border border-line bg-white p-6 lg:grid-cols-[0.7fr_1.3fr]">
+        <div className="mt-10 grid gap-10 border border-line bg-white p-6 lg:grid-cols-[0.7fr_1.3fr]" data-reveal="lift">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-moss">
               Included with every build
@@ -131,7 +131,7 @@ export default async function PricingPage() {
           </div>
           <div className="mt-10 grid gap-px border border-line bg-line lg:grid-cols-3">
             {monthlyCare.map((plan) => (
-              <article key={plan.name} className="bg-white p-6">
+              <article key={plan.name} className="bg-white p-6" data-reveal="lift">
                 <h3 className="text-2xl font-bold">{plan.name}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink/70">
                   {plan.description}
@@ -151,7 +151,7 @@ export default async function PricingPage() {
             ))}
           </div>
         </div>
-        <div className="mt-16 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="mt-16 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]" data-reveal="lift">
           <div>
             <h2 className="font-display text-4xl font-semibold">Common questions</h2>
             <p className="mt-4 leading-7 text-ink/70">
