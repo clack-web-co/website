@@ -30,18 +30,28 @@ export default function ScrollReveal() {
         });
       },
       {
-        rootMargin: "0px 0px -8% 0px",
-        threshold: 0.14
+        rootMargin: "0px 0px -6% 0px",
+        threshold: 0.04
       }
     );
 
     const observedElements = new Set<Element>();
+
+    function isAlreadyVisible(element: HTMLElement) {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.94 && rect.bottom > 0;
+    }
 
     function observeRevealElements() {
       getRevealElements().forEach((element) => {
         if (observedElements.has(element)) return;
 
         observedElements.add(element);
+        if (isAlreadyVisible(element)) {
+          element.classList.add("is-visible");
+          return;
+        }
+
         observer.observe(element);
       });
     }
