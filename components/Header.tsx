@@ -157,7 +157,7 @@ export default function Header({ showPricing }: HeaderProps) {
       </div>
       <nav
         id="mobile-navigation"
-        className={`grid overflow-hidden border-t bg-paper transition-[grid-template-rows,opacity,transform,visibility,border-color] duration-200 ease-out motion-reduce:transition-none md:hidden ${
+        className={`absolute inset-x-0 top-full grid overflow-hidden border-t bg-paper shadow-lg transition-[grid-template-rows,opacity,transform,visibility,border-color] duration-200 ease-out motion-reduce:transition-none md:hidden ${
           isOpen
             ? "visible translate-y-0 border-line opacity-100 [grid-template-rows:1fr]"
             : "invisible -translate-y-2 border-transparent opacity-0 [grid-template-rows:0fr]"

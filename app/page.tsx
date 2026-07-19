@@ -97,7 +97,7 @@ export default async function Home() {
   return (
     <>
       <section className="bg-paper" data-reveal="fade">
-        <div className="container grid gap-10 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-center lg:py-24">
+        <div className="container grid gap-10 py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-center lg:py-12">
           <div className="pb-4">
             <p className="max-w-md border-l-2 border-rust pl-4 text-sm font-bold uppercase tracking-[0.16em] text-moss">
               Web design in North East England
