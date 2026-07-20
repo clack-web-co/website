@@ -157,8 +157,10 @@ export default function Header({ showPricing }: HeaderProps) {
       </div>
       <button
         type="button"
-        className={`fixed inset-x-0 bottom-0 top-20 bg-ink/20 transition-[opacity,visibility] duration-200 ease-out motion-reduce:transition-none md:hidden ${
-          isOpen ? "visible opacity-100" : "invisible opacity-0"
+        className={`fixed inset-x-0 bottom-0 top-20 z-40 bg-ink/35 transition-[opacity,visibility] duration-200 ease-out motion-reduce:transition-none md:hidden ${
+          isOpen
+            ? "visible pointer-events-auto opacity-100"
+            : "invisible pointer-events-none opacity-0"
         }`}
         aria-label="Close navigation menu"
         onClick={closeMenu}
@@ -166,7 +168,7 @@ export default function Header({ showPricing }: HeaderProps) {
       />
       <nav
         id="mobile-navigation"
-        className={`absolute inset-x-0 top-full z-10 grid overflow-hidden border-t bg-paper shadow-lg transition-[grid-template-rows,opacity,transform,visibility,border-color] duration-200 ease-out motion-reduce:transition-none md:hidden ${
+        className={`fixed inset-x-0 top-20 z-50 grid overflow-hidden border-t bg-paper shadow-lg transition-[grid-template-rows,opacity,transform,visibility,border-color] duration-200 ease-out motion-reduce:transition-none md:hidden ${
           isOpen
             ? "visible translate-y-0 border-line opacity-100 [grid-template-rows:1fr]"
             : "invisible -translate-y-2 border-transparent opacity-0 [grid-template-rows:0fr]"
